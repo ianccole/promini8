@@ -16,7 +16,8 @@ void setup()
 void loop()
 {
   char incomingByte;
-  static int delayms = 1000;
+  static int delayms = 100;
+  static int delaymsoff = 1000;
 
   // turn the LED on (HIGH is the voltage level)
   digitalWrite(LED_BUILTIN, HIGH);
@@ -27,7 +28,7 @@ void loop()
   digitalWrite(LED_BUILTIN, LOW);
   Serial.println("LED OFF");
    // wait for a second
-  delay(delayms);
+  delay(delaymsoff);
 
   if(Serial.available()>0)
   {
@@ -38,11 +39,11 @@ void loop()
 
     if(incomingByte == '+'){
       Serial.println("going up");
-      delayms += 100;
+      delaymsoff += 100;
     }
     if(incomingByte == '-'){
       Serial.println("going down");
-      delayms -= 100;
+      delaymsoff -= 100;
     }    
     Serial.println(delayms);
   }
