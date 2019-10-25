@@ -45,6 +45,6 @@ void loop()
       Serial.println("going down");
       delaymsoff -= 100;
     }    
-    Serial.println(delayms);
+    Serial.println(delaymsoff);
   }
 }
